@@ -1,0 +1,6 @@
+.hero h1 {
+  font-size: 3.4rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
