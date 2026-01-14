@@ -18,7 +18,7 @@
 </header>
 
 <!-- ABOUT -->
-<section class="section">
+<section class="section fade">
   <h2>About Staten Island</h2>
   <p>
     Staten Island is one of the five boroughs of New York City, often called the
@@ -34,13 +34,13 @@
 </section>
 
 <!-- IMAGE SECTION -->
-<section class="image-section">
+<section class="image-section fade">
   <img src="https://images.unsplash.com/photo-1542379653-b928db1b4956" alt="Staten Island at night">
   <p class="caption">Staten Island skyline at night — calm, quiet, unforgettable.</p>
 </section>
 
 <!-- HISTORY -->
-<section class="section">
+<section class="section fade">
   <h2>History</h2>
   <p>
     Staten Island has a rich and complex history dating back to Indigenous Lenape
@@ -56,7 +56,7 @@
 </section>
 
 <!-- FUN FACTS -->
-<section class="section dark-box">
+<section class="section dark-box fade">
   <h2>Fun Facts</h2>
   <ul>
     <li>The Staten Island Ferry is completely free and runs 24/7.</li>
@@ -67,7 +67,7 @@
 </section>
 
 <!-- POP CULTURE -->
-<section class="section">
+<section class="section fade">
   <h2>Pop Culture</h2>
   <p>
     Staten Island has influenced music, film, and television. It is famously
@@ -81,7 +81,7 @@
 </section>
 
 <!-- PLACES -->
-<section class="section">
+<section class="section fade">
   <h2>Fun Places to Visit</h2>
 
   <div class="places">
@@ -103,7 +103,7 @@
 </section>
 
 <!-- MAP -->
-<section class="section">
+<section class="section fade">
   <h2>Location</h2>
   <iframe
     src="https://www.google.com/maps?q=Staten%20Island%20NY&output=embed"
@@ -114,6 +114,19 @@
 <footer>
   <p>© Explore Staten Island</p>
 </footer>
+<script>
+  const fades = document.querySelectorAll('.fade');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  fades.forEach(fade => observer.observe(fade));
+</script>
 
 </body>
 </html>
