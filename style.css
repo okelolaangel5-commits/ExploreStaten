@@ -123,3 +123,14 @@ p, li {
   font-family: "Inter", "Arial", sans-serif;
   letter-spacing: 0.3px;
 }
+.places img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.1);
+  tran.places div:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+sition: filter 0.4s ease, transform 0.4s ease;
+}
