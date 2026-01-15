@@ -187,3 +187,37 @@ function loadQuestion() {
   document.getElementById("feedback").textContent = "";
   document.getElementById("nextBtn").style.display = "none";
 }
+#gallery {
+  text-align: center;
+  margin: 60px auto;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.card {
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card p {
+  padding: 10px;
+  color: white;
+}
