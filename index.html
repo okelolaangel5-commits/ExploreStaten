@@ -1,4 +1,4 @@
-
+v
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -156,8 +156,14 @@
     });
   }, { threshold: 0.2 });
 
-  fades.forEach(fade => observer.observe(fade));
-</script>
+  <section style="text-align:center; margin:50px 0;">
+  <h3>📱 Scan to Visit the Explore Staten Island Website</h3>
+  <img
+    src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=YOUR_WEBSITE_URL"
+    alt="QR Code to Explore Staten Island Website">
+  <p>Scan this QR code to open the full website on your phone.</p>
+</section>
+
 
 </body>
 </html>
@@ -244,6 +250,31 @@ function checkAnswer(selected) {
 }
 correctSound.volume = 0.4;
 wrongSound.volume = 0.4;
+<section id="gallery">
+  <h2>📸 Famous Places in Staten Island</h2>
+
+  <div class="gallery">
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Staten_Island_Ferry_Whitehall_Terminal.jpg">
+      <p>Staten Island Ferry</p>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Snug_Harbor_Cultural_Center.jpg">
+      <p>Snug Harbor Cultural Center</p>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Staten_Island_Museum_2017.jpg">
+      <p>Staten Island Museum</p>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Staten_Island_Greenbelt.jpg">
+      <p>Staten Island Greenbelt</p>
+    </div>
+  </div>
+</section>
 
 <script>
 const quiz = [
