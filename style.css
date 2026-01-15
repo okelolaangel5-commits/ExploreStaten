@@ -168,3 +168,22 @@ iframe {
   border-radius: 20px;
   filter: grayscale(100%) brightness(0.8);
 }
+function loadQuestion() {
+  const questionEl = document.getElementById("question");
+  const quizBox = document.getElementById("quiz");
+
+  quizBox.classList.remove("fade");
+  void quizBox.offsetWidth; // reset animation
+  quizBox.classList.add("fade");
+
+  questionEl.textContent = quiz[currentQuestion].question;
+
+  const buttons = document.querySelectorAll("#answers button");
+  buttons.forEach((btn, index) => {
+    btn.textContent = quiz[currentQuestion].answers[index];
+    btn.disabled = false;
+  });
+
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("nextBtn").style.display = "none";
+}
