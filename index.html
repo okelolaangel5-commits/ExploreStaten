@@ -1,2 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Explore Staten Island</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content">
+    <h1>Welcome to Staten Island</h1>
+    <p>Discover NYC’s calm, nature-filled borough</p>
+  </div>
+</header>
+
+<!-- IMAGES -->
+<section>
+  <h2>Staten Island Views</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1549921296-3a6b4e7b9b3c">
+    <img src="https://images.unsplash.com/photo-1526406915894-7bcd65f60845">
+    <img src="https://images.unsplash.com/photo-1518391846015-55a9cc003b25">
+  </div>
+</section>
+
+<!-- MAP -->
+<section>
+  <h2>Staten Island Map</h2>
+  <div class="map">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Staten_Island_Map.png" alt="Staten Island Map">
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section>
+  <h2>Staten Island Quiz</h2>
+  <div class="quiz" id="quiz"></div>
+  <div id="score" class="score"></div>
+</section>
+
+<script>
+const quizData = [
+  ["Which ferry connects Staten Island to Manhattan?", ["Brooklyn Ferry","Staten Island Ferry","Liberty Ferry"], 1],
+  ["Is the Staten Island Ferry free?", ["Yes","No"], 0],
+  ["Which borough is the least populated?", ["Brooklyn","Queens","Staten Island"], 2],
+  ["Staten Island is known for?", ["Skyscrapers","Parks & green spaces","Deserts"], 1],
+  ["Which bridge connects Staten Island to Brooklyn?", ["Brooklyn Bridge","Verrazzano-Narrows Bridge","Williamsburg Bridge"], 1],
+  ["Staten Island is part of which city?", ["Boston","New York City","Philadelphia"], 1],
+  ["Which park is on Staten Island?", ["Central Park","Freshkills Park","Hyde Park"], 1],
+  ["The ferry gives views of?", ["Statue of Liberty","Times Square","Central Park"], 0],
+  ["Staten Island is more ___ than Manhattan.", ["Crowded","Quiet","Touristy"], 1],
+  ["Main transport on Staten Island?", ["Subway","Cars","Cable cars"], 1],
+  ["Staten Island is surrounded by?", ["Hudson River","Atlantic Ocean","Both"], 2],
+  ["Staten Island has more ___ than other boroughs.", ["Parks","Skyscrapers","Subways"], 0],
+  ["Which museum is on Staten Island?", ["Staten Island Museum","MoMA","Louvre"], 0],
+  ["Staten Island Ferry runs?", ["24/7","Only mornings","Only nights"], 0],
+  ["Did you enjoy learning about Staten Island?", ["Yes","Of course","Absolutely"], 0]
+];
+
+const quiz = document.getElementById("quiz");
+let score = 0;
+let answered = 0;
+
+quizData.forEach((q, i) => {
+  const div = document.createElement("div");
+  div.className = "question";
+
+  div.innerHTML = `
+    <h3>${i+1}. ${q[0]}</h3>
+    ${q[1].map((opt,j)=>`
+      <label class="option">
+        <input type="radio" name="q${i}" value="${j}">
+        ${opt}
+      </label>
+    `).join("")}
+    <button class="submit-btn">Submit</button>
+  `;
+
+  const btn = div.querySelector(".submit-btn");
+
+  btn.onclick = () => {
+    const selected = div.querySelector("input:checked");
+    if (!selected) return;
+
+    const selectedIndex = Number(selected.value);
+
+    div.querySelectorAll(".option").forEach((opt, idx) => {
+      if (idx === q[2]) opt.classList.add("correct");
+      if (idx === selectedIndex && idx !== q[2]) opt.classList.add("wrong");
+    });
+
+    if (selectedIndex === q[2]) score++;
+    answered++;
+    btn.disabled = true;
+
+    if (answered === quizData.length) {
+      document.getElementById("score").innerHTML =
+        `You scored <strong>${score} / ${quizData.length}</strong>`;
+    }
+  };
+
+  quiz.appendChild(div);
+});
+</script>
+
+</body>
+</html>
 
 
