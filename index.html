@@ -224,6 +224,26 @@ const wrongSound = new Audio("https://www.soundjay.com/buttons/sounds/button-10.
   cursor: pointer;
 }
 </style>
+function checkAnswer(selected) {
+  const correct = quiz[currentQuestion].correct;
+  const feedback = document.getElementById("feedback");
+
+  if (selected === correct) {
+    feedback.textContent = "✅ Correct!";
+    feedback.style.color = "#4CAF50";
+    correctSound.play();
+    score++;
+  } else {
+    feedback.textContent = "❌ Wrong answer";
+    feedback.style.color = "#f44336";
+    wrongSound.play();
+  }
+
+  document.querySelectorAll("#answers button").forEach(btn => btn.disabled = true);
+  document.getElementById("nextBtn").style.display = "inline-block";
+}
+correctSound.volume = 0.4;
+wrongSound.volume = 0.4;
 
 <script>
 const quiz = [
