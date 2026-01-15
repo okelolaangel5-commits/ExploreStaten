@@ -110,6 +110,37 @@
     loading="lazy">
   </iframe>
 </section>
+/* Fade animation */
+.fade {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button click animation */
+#answers button {
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#answers button:active {
+  transform: scale(0.96);
+}
+
+/* Feedback animation */
+#feedback {
+  margin-top: 10px;
+  font-size: 18px;
+  animation: fadeIn 0.5s ease-in-out;
+}
 
 <footer>
   <p>© Explore Staten Island</p>
@@ -137,3 +168,133 @@
 </p>
 <hr class="lux-divider">
 
+<!-- STATEN ISLAND QUIZ -->
+<section id="quiz">
+  <h2>🗽 Staten Island Quiz</h2>
+  <p id="question"></p>
+
+  <div id="answers">
+    <button onclick="checkAnswer(0)"></button>
+    <button onclick="checkAnswer(1)"></button>
+    <button onclick="checkAnswer(2)"></button>
+    <button onclick="checkAnswer(3)"></button>
+  </div>
+
+  <p id="feedback"></p>
+  <button id="nextBtn" onclick="nextQuestion()" style="display:none;">Next Question</button>
+
+  <p id="score"></p>
+</section>
+
+<style>
+#quiz {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #111;
+  color: white;
+  border-radius: 12px;
+  text-align: center;
+}
+
+#answers button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#answers button:hover {
+  background: #444;
+}
+
+#nextBtn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #f5c518;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+</style>
+
+<script>
+const quiz = [
+  {
+    question: "Which city is Staten Island part of?",
+    answers: ["Los Angeles", "New York City", "Chicago", "Miami"],
+    correct: 1
+  },
+  {
+    question: "What is the free ferry connecting Staten Island to Manhattan?",
+    answers: ["Hudson Boat", "Brooklyn Ferry", "Staten Island Ferry", "Liberty Ship"],
+    correct: 2
+  },
+  {
+    question: "How many boroughs does New York City have?",
+    answers: ["3", "4", "5", "6"],
+    correct: 2
+  },
+  {
+    question: "What large park is located on Staten Island?",
+    answers: ["Central Park", "Prospect Park", "Staten Island Greenbelt", "Bryant Park"],
+    correct: 2
+  },
+  {
+    question: "Staten Island is known for being:",
+    answers: ["The busiest borough", "The smallest borough", "The least populated borough", "The oldest borough"],
+    correct: 2
+  }
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion() {
+  document.getElementById("question").textContent = quiz[currentQuestion].question;
+  const buttons = document.querySelectorAll("#answers button");
+
+  buttons.forEach((btn, index) => {
+    btn.textContent = quiz[currentQuestion].answers[index];
+    btn.disabled = false;
+  });
+
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("nextBtn").style.display = "none";
+}
+
+function checkAnswer(selected) {
+  const correct = quiz[currentQuestion].correct;
+  const feedback = document.getElementById("feedback");
+
+  if (selected === correct) {
+    feedback.textContent = "✅ Correct!";
+    score++;
+  } else {
+    feedback.textContent = "❌ Wrong answer";
+  }
+
+  document.querySelectorAll("#answers button").forEach(btn => btn.disabled = true);
+  document.getElementById("nextBtn").style.display = "inline-block";
+}
+
+function nextQuestion() {
+  currentQuestion++;
+
+  if (currentQuestion < quiz.length) {
+    loadQuestion();
+  } else {
+    document.getElementById("quiz").innerHTML = `
+      <h2>🎉 Quiz Completed!</h2>
+      <p>Your score: ${score} / ${quiz.length}</p>
+    `;
+  }
+}
+
+loadQuestion();
+</script>
