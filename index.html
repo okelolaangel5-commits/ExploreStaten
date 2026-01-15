@@ -1,212 +1,416 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Explore Staten Island</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Welcome to Staten Island</title>
+
+<style>
+/* -------- RESET -------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* -------- DARK THEME -------- */
+body {
+  background: #0b0d12;
+  color: #eaeaea;
+  line-height: 1.6;
+}
+
+/* -------- HERO -------- */
+.hero {
+  height: 90vh;
+  background: 
+    linear-gradient(to bottom, rgba(0,0,0,0.2), #0b0d12),
+    url("https://images.unsplash.com/photo-1549921296-3a6b4e7b9b3c") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: fadeIn 2s ease;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  margin-top: 10px;
+  color: #bdbdbd;
+}
+
+/* -------- SECTIONS -------- */
+section {
+  padding: 60px 10%;
+  animation: fadeUp 1.5s ease;
+}
+
+h2 {
+  margin-bottom: 20px;
+  border-left: 4px solid #3a86ff;
+  padding-left: 10px;
+}
+
+/* -------- MAP -------- */
+.map img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.7);
+}
+
+/* -------- QUIZ -------- */
+.quiz {
+  background: #12151c;
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.question {
+  margin-bottom: 25px;
+}
+
+.answers button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  background: #1b1f2a;
+  border: none;
+  border-radius: 8px;
+  color: #eaeaea;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.answers button:hover {
+  background: #2a2f3f;
+}
+
+.correct {
+  color: #3cff00;
+  font-weight: bold;
+}
+
+.wrong {
+  color: #ff3c3c;
+  font-weight: bold;
+}
+
+/* -------- ANIMATIONS -------- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
 </head>
+
 <body>
 
-<header class="hero">
-  <div class="hero-overlay">
+<!-- HERO -->
+<div class="hero">
+  <div>
     <h1>Welcome to Staten Island</h1>
-    <p>A night-city borough filled with history, culture, and identity</p>
+    <p>The calm borough of New York City</p>
   </div>
-</header>
+</div>
 
-<section class="section fade">
-  <h2>Introduction</h2>
-  <img src="images/staten-night.jpg">
-  <p>
-    Staten Island is one of the five boroughs of New York City, located in the
-    southwest of the city. It is often described as the calmest borough,
-    offering a balance between urban life and peaceful residential areas.
-    At night, Staten Island reveals a breathtaking skyline and a quiet charm
-    that sets it apart from the rest of New York City.
-  </p>
+<!-- MAP -->
+<section class="map">
+  <h2>Staten Island Map</h2>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Staten_Island_Map.png" alt="Staten Island Map">
 </section>
 
-<section class="section dark-box fade">
-  <h2>History</h2>
-  <img src="images/history.jpg">
-  <p>
-    Before European settlers arrived, Staten Island was home to the Lenape
-    Native American tribe. In the 1600s, the Dutch and later the British
-    colonized the area. In 1898, Staten Island officially became one of the
-    five boroughs of New York City. Today, the borough preserves its history
-    through museums, landmarks, and historic towns.
-  </p>
-</section>
+<!-- QUIZ -->
+<section>
+  <h2>Staten Island Quiz</h2>
 
-<section class="section fade">
-  <h2>Culture & Daily Life</h2>
-  <img src="images/culture.jpg">
-  <p>
-    Staten Island is known for its strong sense of community and family life.
-    Many residents have lived there for generations. The borough is culturally
-    diverse, influenced by Italian, Irish, African American, and Asian
-    communities. Life on Staten Island moves at a slower pace compared to
-    Manhattan, making it ideal for families and students.
-  </p>
-</section>
+  <div class="quiz">
 
-<section class="section dark-box fade">
-  <h2>Fun Facts</h2>
-  <img src="images/ferry.jpg">
-  <ul>
-    <li>The Staten Island Ferry is completely free 🚢</li>
-    <li>It is the least populated borough of NYC</li>
-    <li>It is the greenest borough with many parks 🌿</li>
-    <li>It has stunning nighttime skyline views 🌃</li>
-  </ul>
-</section>
+    <div class="question">
+      <p>1. Which ferry connects Staten Island to Manhattan?</p>
+      <div class="answers">
+        <button onclick="check(this, false)">Brooklyn Ferry</button>
+        <button onclick="check(this, true)">Staten Island Ferry</button>
+        <button onclick="check(this, false)">Liberty Ferry</button>
+      </div>
+    </div>
 
-<section class="section fade">
-  <h2>Pop Culture</h2>
-  <img src="images/wutang.jpg">
-  <p>
-    Staten Island plays an important role in pop culture, especially in music.
-    The world-famous hip-hop group Wu-Tang Clan originated here and often
-    refers to Staten Island as “Shaolin.” The borough has also appeared in
-    movies, TV shows, and documentaries.
-  </p>
-</section>
+    <div class="question">
+      <p>2. Is the Staten Island Ferry free?</p>
+      <div class="answers">
+        <button onclick="check(this, true)">Yes</button>
+        <button onclick="check(this, false)">No</button>
+      </div>
+    </div>
 
-<section class="section dark-box fade">
-  <h2>Places to Visit</h2>
-  <img src="images/places.jpg">
-  <p>
-    Staten Island offers many attractions such as the Staten Island Ferry,
-    Snug Harbor Cultural Center, Historic Richmond Town, and the Staten Island
-    Museum. These places highlight the borough’s history, art, and natural
-    beauty.
-  </p>
-</section>
+    <div class="question">
+      <p>3. Which borough is the least populated?</p>
+      <div class="answers">
+        <button onclick="check(this, true)">Staten Island</button>
+        <button onclick="check(this, false)">Brooklyn</button>
+        <button onclick="check(this, false)">Manhattan</button>
+      </div>
+    </div>
 
-<section class="section fade">
-  <h2>Map</h2>
-  <div class="map-box">
-    <iframe src="https://www.google.com/maps?q=staten+island&output=embed"></iframe>
+    <div class="question">
+      <p>4. Staten Island is especially known for?</p>
+      <div class="answers">
+        <button onclick="check(this, true)">Parks & green spaces</button>
+        <button onclick="check(this, false)">Skyscrapers</button>
+        <button onclick="check(this, false)">Deserts</button>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<section class="section dark-box fade">
-  <h2>Quiz: Staten Island</h2>
+<script>
+function check(button, isCorrect) {
+  if (isCorrect) {
+    button.innerHTML += " ✓";
+    button.classList.add("correct");
+  } else {
+    button.innerHTML += " ✗";
+    button.classList.add("wrong");
+  }
 
-  <ol>
-    <li>
-      Which city is Staten Island part of?
-      <ul>
-        <li>A. Los Angeles</li>
-        <li>B. New York City ✅</li>
-        <li>C. Chicago</li>
-        <li>D. Miami</li>
-      </ul>
-    </li>
-
-    <li>
-      Which ferry connects Staten Island to Manhattan?
-      <ul>
-        <li>A. Brooklyn Ferry</li>
-        <li>B. Hudson Ferry</li>
-        <li>C. Staten Island Ferry ✅</li>
-        <li>D. Liberty Ferry</li>
-      </ul>
-    </li>
-
-    <li>
-      Is the Staten Island Ferry free?
-      <ul>
-        <li>A. Yes ✅</li>
-        <li>B. No</li>
-      </ul>
-    </li>
-
-    <li>
-      Which famous music group comes from Staten Island?
-      <ul>
-        <li>A. Coldplay</li>
-        <li>B. BTS</li>
-        <li>C. Wu-Tang Clan ✅</li>
-        <li>D. Imagine Dragons</li>
-      </ul>
-    </li>
-
-    <li>
-      Which borough is the least populated?
-      <ul>
-        <li>A. Manhattan</li>
-        <li>B. Brooklyn</li>
-        <li>C. Bronx</li>
-        <li>D. Staten Island ✅</li>
-      </ul>
-    </li>
-
-    <li>
-      Which Native American tribe lived on Staten Island first?
-      <ul>
-        <li>A. Apache</li>
-        <li>B. Lenape ✅</li>
-        <li>C. Cherokee</li>
-        <li>D. Sioux</li>
-      </ul>
-    </li>
-
-    <li>
-      What is Staten Island especially known for?
-      <ul>
-        <li>A. Skyscrapers</li>
-        <li>B. Parks and green spaces ✅</li>
-        <li>C. Deserts</li>
-        <li>D. Mountains</li>
-      </ul>
-    </li>
-
-    <li>
-      What nickname is used for Staten Island in pop culture?
-      <ul>
-        <li>A. Gotham</li>
-        <li>B. Uptown</li>
-        <li>C. Shaolin ✅</li>
-        <li>D. Midtown</li>
-      </ul>
-    </li>
-
-    <li>
-      Which place shows historic village life?
-      <ul>
-        <li>A. Times Square</li>
-        <li>B. Central Park</li>
-        <li>C. Historic Richmond Town ✅</li>
-        <li>D. Broadway</li>
-      </ul>
-    </li>
-
-    <li>
-      Did Angel, Tia, Eske, Stella and Joan make a memorable presentation?
-      <ul>
-        <li>🌟 Yes, absolutely!</li>
-        <li>👍 Yes, it was good</li>
-        <li>😐 It was okay</li>
-        <li>❌ Not really</li>
-      </ul>
-    </li>
-  </ol>
-
-  <p class="remarks">
-    <strong>Remarks:</strong>  
-    This quiz encourages students to reflect on what they have learned about
-    Staten Island while also recognizing teamwork, creativity, and presentation
-    skills.
-  </p>
-</section>
-
-<footer>
-  <p>School Project • Explore Staten Island</p>
-</footer>
+  // Disable all buttons in this question
+  let buttons = button.parentElement.querySelectorAll("button");
+  buttons.forEach(b => b.disabled = true);
+}
+</script>
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Welcome to Staten Island</title>
 
-  
+<style>
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
 
+/* ===== DARK CORE ===== */
+body {
+  background: #05060a;
+  color: #e5e7eb;
+  overflow-x: hidden;
+}
+
+/* ===== HERO ===== */
+.hero {
+  height: 100vh;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.3), #05060a),
+    url("https://images.unsplash.com/photo-1505761671935-60b3a7427bad") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content {
+  animation: slowFade 2.5s ease forwards;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  letter-spacing: 3px;
+  text-shadow: 0 0 25px rgba(58,134,255,0.4);
+}
+
+.hero p {
+  margin-top: 15px;
+  color: #9ca3af;
+  font-size: 1.1rem;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 70px 10%;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: reveal 1.6s ease forwards;
+}
+
+section:nth-of-type(2) { animation-delay: 0.3s; }
+section:nth-of-type(3) { animation-delay: 0.6s; }
+
+h2 {
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  border-left: 4px solid #3a86ff;
+  padding-left: 12px;
+}
+
+/* ===== MAP ===== */
+.map img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow:
+    0 0 50px rgba(0,0,0,0.9),
+    inset 0 0 30px rgba(255,255,255,0.05);
+  transition: transform 0.6s ease;
+}
+
+.map img:hover {
+  transform: scale(1.02);
+}
+
+/* ===== QUIZ ===== */
+.quiz {
+  background: linear-gradient(145deg, #0a0c14, #06070c);
+  border-radius: 18px;
+  padding: 35px;
+  box-shadow: 0 0 60px rgba(0,0,0,0.8);
+}
+
+.question {
+  margin-bottom: 30px;
+}
+
+.question p {
+  margin-bottom: 12px;
+  color: #d1d5db;
+}
+
+.answers button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 14px;
+  background: #0f1320;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 10px;
+  color: #e5e7eb;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.answers button:hover {
+  background: #161b2e;
+  box-shadow: 0 0 15px rgba(58,134,255,0.25);
+  transform: translateY(-2px);
+}
+
+.correct {
+  color: #22c55e;
+  text-shadow: 0 0 10px rgba(34,197,94,0.6);
+}
+
+.wrong {
+  color: #ef4444;
+  text-shadow: 0 0 10px rgba(239,68,68,0.6);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slowFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>Welcome to Staten Island</h1>
+    <p>NYC’s quiet borough — calm, history, and night views</p>
+  </div>
+</div>
+
+<!-- MAP -->
+<section class="map">
+  <h2>Staten Island Map</h2>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Staten_Island_Map.png">
+</section>
+
+<!-- QUIZ -->
+<section>
+  <h2>Staten Island Quiz</h2>
+
+  <div class="quiz">
+
+    <div class="question">
+      <p>1. Which ferry connects Staten Island to Manhattan?</p>
+      <div class="answers">
+        <button onclick="check(this,false)">Brooklyn Ferry</button>
+        <button onclick="check(this,true)">Staten Island Ferry</button>
+        <button onclick="check(this,false)">Liberty Ferry</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>2. Is the Staten Island Ferry free?</p>
+      <div class="answers">
+        <button onclick="check(this,true)">Yes</button>
+        <button onclick="check(this,false)">No</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>3. Which borough has the lowest population?</p>
+      <div class="answers">
+        <button onclick="check(this,true)">Staten Island</button>
+        <button onclick="check(this,false)">Queens</button>
+        <button onclick="check(this,false)">Brooklyn</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>4. Staten Island is best known for?</p>
+      <div class="answers">
+        <button onclick="check(this,true)">Parks & green spaces</button>
+        <button onclick="check(this,false)">Tall skyscrapers</button>
+        <button onclick="check(this,false)">Deserts</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function check(btn, correct) {
+  if (correct) {
+    btn.innerHTML += " ✓";
+    btn.classList.add("correct");
+  } else {
+    btn.innerHTML += " ✗";
+    btn.classList.add("wrong");
+  }
+
+  btn.parentElement.querySelectorAll("button")
+    .forEach(b => b.disabled = true);
+}
+</script>
+
+</body>
+</html>
