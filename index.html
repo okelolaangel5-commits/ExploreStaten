@@ -3,214 +3,210 @@
 <head>
   <meta charset="UTF-8">
   <title>Explore Staten Island</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f0f0f;
-      color: white;
-      text-align: center;
-    }
-
-    header {
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #1e1e1e, #000);
-    }
-
-    section {
-      padding: 50px 20px;
-    }
-
-    h1, h2 {
-      margin-bottom: 20px;
-    }
-
-    /* GALLERY */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .card {
-      background: #111;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-    }
-
-    .card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
-
-    /* QUIZ */
-    #quiz {
-      max-width: 600px;
-      margin: auto;
-      background: #111;
-      padding: 25px;
-      border-radius: 12px;
-    }
-
-    #answers button {
-      width: 100%;
-      margin: 10px 0;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      background: #222;
-      color: white;
-      cursor: pointer;
-    }
-
-    #answers button:hover {
-      background: #444;
-    }
-
-    #nextBtn {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #f5c518;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    /* QR */
-    #qr img {
-      margin-top: 20px;
-      transition: transform 0.3s ease;
-    }
-
-    #qr img:hover {
-      transform: scale(1.05);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-  <h1>🗽 Explore Staten Island</h1>
-  <p>Discover places, test your knowledge, and explore NYC’s hidden gem.</p>
+<header class="hero">
+  <div class="hero-overlay">
+    <h1>Welcome to Staten Island</h1>
+    <p>A night-city borough filled with history, culture, and identity</p>
+  </div>
 </header>
-<section id="about">
-  <h2>🌍 About Staten Island</h2>
-  <p>
-    Staten Island is one of the five boroughs of New York City and is known
-    for its peaceful neighborhoods, large green spaces, and rich history.
-    Compared to other boroughs, it is less crowded and offers a more relaxed
-    atmosphere.
-  </p>
 
+<section class="section fade">
+  <h2>Introduction</h2>
+  <img src="images/staten-night.jpg">
   <p>
-    The island is connected to Manhattan by the famous Staten Island Ferry,
-    which operates 24 hours a day and is completely free. Staten Island is
-    also home to cultural landmarks, historic towns, and beautiful parks.
+    Staten Island is one of the five boroughs of New York City, located in the
+    southwest of the city. It is often described as the calmest borough,
+    offering a balance between urban life and peaceful residential areas.
+    At night, Staten Island reveals a breathtaking skyline and a quiet charm
+    that sets it apart from the rest of New York City.
   </p>
 </section>
 
-<section>
-  <h2>📸 Famous Places</h2>
-  <div class="gallery">
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Staten_Island_Ferry_Whitehall_Terminal.jpg">
-      <p>Staten Island Ferry</p>
-    </div>
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Snug_Harbor_Cultural_Center.jpg">
-      <p>Snug Harbor</p>
-    </div>
-    <div class="card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Staten_Island_Greenbelt.jpg">
-      <p>Staten Island Greenbelt</p>
-    </div>
+<section class="section dark-box fade">
+  <h2>History</h2>
+  <img src="images/history.jpg">
+  <p>
+    Before European settlers arrived, Staten Island was home to the Lenape
+    Native American tribe. In the 1600s, the Dutch and later the British
+    colonized the area. In 1898, Staten Island officially became one of the
+    five boroughs of New York City. Today, the borough preserves its history
+    through museums, landmarks, and historic towns.
+  </p>
+</section>
+
+<section class="section fade">
+  <h2>Culture & Daily Life</h2>
+  <img src="images/culture.jpg">
+  <p>
+    Staten Island is known for its strong sense of community and family life.
+    Many residents have lived there for generations. The borough is culturally
+    diverse, influenced by Italian, Irish, African American, and Asian
+    communities. Life on Staten Island moves at a slower pace compared to
+    Manhattan, making it ideal for families and students.
+  </p>
+</section>
+
+<section class="section dark-box fade">
+  <h2>Fun Facts</h2>
+  <img src="images/ferry.jpg">
+  <ul>
+    <li>The Staten Island Ferry is completely free 🚢</li>
+    <li>It is the least populated borough of NYC</li>
+    <li>It is the greenest borough with many parks 🌿</li>
+    <li>It has stunning nighttime skyline views 🌃</li>
+  </ul>
+</section>
+
+<section class="section fade">
+  <h2>Pop Culture</h2>
+  <img src="images/wutang.jpg">
+  <p>
+    Staten Island plays an important role in pop culture, especially in music.
+    The world-famous hip-hop group Wu-Tang Clan originated here and often
+    refers to Staten Island as “Shaolin.” The borough has also appeared in
+    movies, TV shows, and documentaries.
+  </p>
+</section>
+
+<section class="section dark-box fade">
+  <h2>Places to Visit</h2>
+  <img src="images/places.jpg">
+  <p>
+    Staten Island offers many attractions such as the Staten Island Ferry,
+    Snug Harbor Cultural Center, Historic Richmond Town, and the Staten Island
+    Museum. These places highlight the borough’s history, art, and natural
+    beauty.
+  </p>
+</section>
+
+<section class="section fade">
+  <h2>Map</h2>
+  <div class="map-box">
+    <iframe src="https://www.google.com/maps?q=staten+island&output=embed"></iframe>
   </div>
 </section>
 
-<section>
-  <h2>🧠 Staten Island Quiz</h2>
-  <div id="quiz">
-    <p id="question"></p>
-    <div id="answers">
-      <button onclick="checkAnswer(0)"></button>
-      <button onclick="checkAnswer(1)"></button>
-      <button onclick="checkAnswer(2)"></button>
-      <button onclick="checkAnswer(3)"></button>
-    </div>
-    <p id="feedback"></p>
-    <button id="nextBtn" onclick="nextQuestion()" style="display:none;">Next</button>
-  </div>
+<section class="section dark-box fade">
+  <h2>Quiz: Staten Island</h2>
+
+  <ol>
+    <li>
+      Which city is Staten Island part of?
+      <ul>
+        <li>A. Los Angeles</li>
+        <li>B. New York City ✅</li>
+        <li>C. Chicago</li>
+        <li>D. Miami</li>
+      </ul>
+    </li>
+
+    <li>
+      Which ferry connects Staten Island to Manhattan?
+      <ul>
+        <li>A. Brooklyn Ferry</li>
+        <li>B. Hudson Ferry</li>
+        <li>C. Staten Island Ferry ✅</li>
+        <li>D. Liberty Ferry</li>
+      </ul>
+    </li>
+
+    <li>
+      Is the Staten Island Ferry free?
+      <ul>
+        <li>A. Yes ✅</li>
+        <li>B. No</li>
+      </ul>
+    </li>
+
+    <li>
+      Which famous music group comes from Staten Island?
+      <ul>
+        <li>A. Coldplay</li>
+        <li>B. BTS</li>
+        <li>C. Wu-Tang Clan ✅</li>
+        <li>D. Imagine Dragons</li>
+      </ul>
+    </li>
+
+    <li>
+      Which borough is the least populated?
+      <ul>
+        <li>A. Manhattan</li>
+        <li>B. Brooklyn</li>
+        <li>C. Bronx</li>
+        <li>D. Staten Island ✅</li>
+      </ul>
+    </li>
+
+    <li>
+      Which Native American tribe lived on Staten Island first?
+      <ul>
+        <li>A. Apache</li>
+        <li>B. Lenape ✅</li>
+        <li>C. Cherokee</li>
+        <li>D. Sioux</li>
+      </ul>
+    </li>
+
+    <li>
+      What is Staten Island especially known for?
+      <ul>
+        <li>A. Skyscrapers</li>
+        <li>B. Parks and green spaces ✅</li>
+        <li>C. Deserts</li>
+        <li>D. Mountains</li>
+      </ul>
+    </li>
+
+    <li>
+      What nickname is used for Staten Island in pop culture?
+      <ul>
+        <li>A. Gotham</li>
+        <li>B. Uptown</li>
+        <li>C. Shaolin ✅</li>
+        <li>D. Midtown</li>
+      </ul>
+    </li>
+
+    <li>
+      Which place shows historic village life?
+      <ul>
+        <li>A. Times Square</li>
+        <li>B. Central Park</li>
+        <li>C. Historic Richmond Town ✅</li>
+        <li>D. Broadway</li>
+      </ul>
+    </li>
+
+    <li>
+      Did Angel, Tia, Eske, Stella and Joan make a memorable presentation?
+      <ul>
+        <li>🌟 Yes, absolutely!</li>
+        <li>👍 Yes, it was good</li>
+        <li>😐 It was okay</li>
+        <li>❌ Not really</li>
+      </ul>
+    </li>
+  </ol>
+
+  <p class="remarks">
+    <strong>Remarks:</strong>  
+    This quiz encourages students to reflect on what they have learned about
+    Staten Island while also recognizing teamwork, creativity, and presentation
+    skills.
+  </p>
 </section>
 
-<section id="qr">
-  <h2>📱 Scan to Visit the Website</h2>
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=REPLACE_WITH_YOUR_LINK">
-  <p>Scan this QR code to open the full website.</p>
-</section>
-
-<script>
-  const quiz = [
-    {
-      question: "Which city is Staten Island part of?",
-      answers: ["Los Angeles", "New York City", "Chicago", "Miami"],
-      correct: 1
-    },
-    {
-      question: "What ferry connects Staten Island to Manhattan?",
-      answers: ["Brooklyn Ferry", "Staten Island Ferry", "Hudson Boat", "Liberty Ship"],
-      correct: 1
-    }
-  ];
-
-  let currentQuestion = 0;
-
-  function loadQuestion() {
-    document.getElementById("question").textContent = quiz[currentQuestion].question;
-    document.querySelectorAll("#answers button").forEach((btn, i) => {
-      btn.textContent = quiz[currentQuestion].answers[i];
-      btn.disabled = false;
-    });
-    document.getElementById("feedback").textContent = "";
-    document.getElementById("nextBtn").style.display = "none";
-  }
-
-  function checkAnswer(i) {
-    const feedback = document.getElementById("feedback");
-    if (i === quiz[currentQuestion].correct) {
-      feedback.textContent = "✅ Correct!";
-    } else {
-      feedback.textContent = "❌ Wrong";
-    }
-    document.querySelectorAll("#answers button").forEach(b => b.disabled = true);
-    document.getElementById("nextBtn").style.display = "inline-block";
-  }
-
-  function nextQuestion() {
-    currentQuestion++;
-    if (currentQuestion < quiz.length) {
-      loadQuestion();
-    } else {
-      document.getElementById("quiz").innerHTML = "<h3>🎉 Quiz completed!</h3>";
-    }
-  }
-
-  loadQuestion();
-</script>
+<footer>
+  <p>School Project • Explore Staten Island</p>
+</footer>
 
 </body>
 </html>
 
-
-
-
+  
 
