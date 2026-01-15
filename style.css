@@ -221,3 +221,17 @@ function loadQuestion() {
   padding: 10px;
   color: white;
 }
+#qr-code img {
+  transition: transform 0.3s ease;
+}
+
+#qr-code img:hover {
+  transform: scale(1.05);
+}
+#qr-code img {
+  transition: transform 0.3s ease;
+}
+
+#qr-code img:hover {
+  transform: scale(1.05);
+}
